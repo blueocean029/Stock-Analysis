@@ -1,0 +1,62 @@
+<div class="col-md-12">
+	<h2>STOCK ANALYSIS</h2>
+	<div class="col-md-12 section">
+		<select class="form-control select" data-ng-model="ticker" data-ng-options="data as data for data in tickerList" data-ng-change="fetchTickerData()" required>
+			<option value="">Select Ticker</option>
+		</select>
+    </div>
+
+    <div class="col-md-12 section" data-ng-if="graphData">
+    	<h3>Probability Vs. Gain or Loss Graph</h3>
+    	<canvas id="line" class="chart chart-line" chart-data="data"
+		chart-labels="labels" chart-options="options">
+		</canvas>
+    </div>
+
+    <div class="col-md-12 section" data-ng-if="otherData">
+    	<h3>Other Data</h3>
+    	<table style="width: 100%;">
+    		<tr>
+    			<td>Previous Close</td>
+    			<td>{{otherData.PreviousClose}}</td>
+    			<td>Days Range</td>
+    			<td>{{otherData.DaysRange}}</td>
+    			<td>Market Cap</td>
+    			<td>{{otherData.MarketCap}}</td>
+    			<td>Earnings Date</td>
+    			<td>{{otherData.EarningsDate}}</td>
+    		</tr>
+    		<tr>
+    			<td>Open</td>
+    			<td>{{otherData.Open}}</td>
+    			<td>52 Week Range</td>
+    			<td>{{otherData.ftWeekRange}}</td>
+    			<td>Beta</td>
+    			<td>{{otherData.Beta}}</td>
+    			<td>Forward Dividend Yield</td>
+    			<td>{{otherData.ForwardDividendYield}}</td>
+    		</tr>
+    		<tr>
+    			<td>Bid</td>
+    			<td>{{otherData.Bid}}</td>
+    			<td>Volume</td>
+    			<td>{{otherData.Volume}}</td>
+    			<td>PE Ratio TTM</td>
+    			<td>{{otherData.PERatioTTM}}</td>
+    			<td>Ex Dividend Date</td>
+    			<td>{{otherData.ExDividendDate}}</td>
+    		</tr>
+    		<tr>
+    			<td>Ask</td>
+    			<td>{{otherData.Ask}}</td>
+    			<td>Avg. Volume</td>
+    			<td>{{otherData.AvgVolume}}</td>
+    			<td>EPS (TTM)</td>
+    			<td>{{otherData.EPSTTM}}</td>
+    			<td>Oney Target Est</td>
+    			<td>{{otherData.OneyTargetEst}}</td>
+    		</tr>
+    	</table>
+    </div>
+    
+</div>
